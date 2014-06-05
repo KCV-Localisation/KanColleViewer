@@ -299,18 +299,10 @@
 
 						<LineBreak />
 
-						<Run Text="Localisation:" />
+						<Run Text="Localization (English):" />
 						<metro2:HyperlinkEx Uri="https://twitter.com/southrop113">
 							<Run Text="@southrop113" />
 						</metro2:HyperlinkEx>
-						<Run Text="(English)" FontSize="8" /><Run Text="," />
-						<metro2:HyperlinkEx Uri="https://twitter.com/xshunin">
-							<Run Text="@xshunin" />
-						</metro2:HyperlinkEx><Run Text=" and" />
-						<metro2:HyperlinkEx Uri="https://twitter.com/halcy">
-							<Run Text="@halcy" />
-						</metro2:HyperlinkEx>
-						<Run Text="(German)" FontSize="8" />
 					</TextBlock>
 
 					<Rectangle Height="1"

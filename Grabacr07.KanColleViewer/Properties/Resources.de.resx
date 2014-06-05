@@ -232,7 +232,7 @@
     <value>Diese Flotte ist auf einer Expedition.</value>
   </data>
   <data name="MessageBar_Expedition_TimeCompletion" xml:space="preserve">
-    <value> Zeit bis zur Fertigstellung:</value>
+    <value> Zeit bis zur Rückkehr:</value>
   </data>
   <data name="MessageBar_Expedition_TimeRemaining" xml:space="preserve">
     <value> Verbleibende Zeit:</value>
@@ -244,10 +244,10 @@
     <value>Es sind derzeit Schiffe in der Reparatur..</value>
   </data>
   <data name="MessageBar_ReSortie_BadCondition" xml:space="preserve">
-    <value>sind erschöpft</value>
+    <value>erschöpft sind</value>
   </data>
   <data name="MessageBar_ReSortie_CanNotReSortie" xml:space="preserve">
-    <value>Es sind Schiffe in deiner Flotte, die {0}.</value>
+    <value>Einige Schiffe in deiner Flotte, die {0}.</value>
   </data>
   <data name="MessageBar_ReSortie_CanReSortie" xml:space="preserve">
     <value>bereit zum Einsatz sind!</value>
@@ -256,13 +256,13 @@
     <value>Versorgung brauchen.</value>
   </data>
   <data name="MessageBar_ReSortie_Remaining" xml:space="preserve">
-    <value>Zeit bis wieder bereit: </value>
+    <value>Wartezeit: </value>
   </data>
   <data name="MessageBar_ReSortie_Separator" xml:space="preserve">
     <value>, </value>
   </data>
   <data name="MessageBar_ReSortie_Wounded" xml:space="preserve">
-    <value>sind schwer beschädigt</value>
+    <value>schwer beschädigt sind</value>
   </data>
   <data name="Quests" xml:space="preserve">
     <value>Quests</value>
@@ -680,14 +680,14 @@ GPU: Langsam! GPU Optimierung für Tablets.</value>
 Hoch: Standard.
 Auto-Hoch: Senkt die Qualität, wenn nötig.
 Medium: Durchschnittliche Performance
-Auto-Niedrig: Passt die Geschwindigkeit an, wenn nötig
+Auto-Niedrig: Passt die Geschwindigkeit an, wenn nötig.
 Niedrig: Performance über Qualität. Sieht einfach beschissen aus.</value>
   </data>
   <data name="Fleets_ViewRange" xml:space="preserve">
-    <value>Gesamt Sichtweite</value>
+    <value>Gesamt Sichtweite (LoS)</value>
   </data>
   <data name="Settings_Updates_GetKCVBtn" xml:space="preserve">
-    <value>Neusten KCV besorgen</value>
+    <value>Neusten KCV laden</value>
   </data>
   <data name="Settings_Updates_GetKCVBtn_ToolTip" xml:space="preserve">
     <value>Öffnet einen Link zur neusten KCV Version.</value>
@@ -698,35 +698,5 @@ Niedrig: Performance über Qualität. Sieht einfach beschissen aus.</value>
   <data name="Settings_Flash_Message" xml:space="preserve">
     <value>Funktioniert nun mit DMM.com. OSAPI, und API Links !
 [Du musst das Spiel neuladen, damit das funktioniert.]</value>
-  </data>
-  <data name="Rank_Admiral" xml:space="preserve">
-    <value>Admiral</value>
-  </data>
-  <data name="Rank_Captain" xml:space="preserve">
-    <value>Kapitän zur See</value>
-  </data>
-  <data name="Rank_Commander" xml:space="preserve">
-    <value>Fregattenkapitän</value>
-  </data>
-  <data name="Rank_Lieutenant" xml:space="preserve">
-    <value>Kapitänleutnant</value>
-  </data>
-  <data name="Rank_Lieutenant_Commander" xml:space="preserve">
-    <value>Korvettenkapitän</value>
-  </data>
-  <data name="Rank_Marshal_Admiral" xml:space="preserve">
-    <value>Großadmiral</value>
-  </data>
-  <data name="Rank_Novice_Commander" xml:space="preserve">
-    <value>Korvettenkapitänskadett</value>
-  </data>
-  <data name="Rank_Novice_Lieutenant" xml:space="preserve">
-    <value>Kapitänleutnantkadett</value>
-  </data>
-  <data name="Rank_Rear_Admiral" xml:space="preserve">
-    <value>Konteradmiral</value>
-  </data>
-  <data name="Rank_Vice_Admiral" xml:space="preserve">
-    <value>Vizeadmiral</value>
   </data>
 </root>
