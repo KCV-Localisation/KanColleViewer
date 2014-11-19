@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -24,6 +25,7 @@ namespace Grabacr07.KanColleWrapper
 
 		public bool EnableTranslations { get; set; }
 		public bool EnableAddUntranslated { get; set; }
+		public bool EnableStringSubmission { get; set; }
 		
 		#region EquipmentVersion 変更通知プロパティ
 
@@ -435,12 +437,50 @@ namespace Grabacr07.KanColleWrapper
 						}
 
 						QuestsXML.Save("Translations\\" + CurrentCulture + "Quests.xml");
+						// if (EnableStringSubmission)
+						{
+							SubmitStrings(RawData, Type);
+						}
 						break;
 				}
 			}
 			catch (Exception ex)
 			{
 				Debug.WriteLine(ex);
+			}
+		}
+
+		// Submits missing translations to a remote server.
+		public void SubmitStrings(Object RawData, TranslationType Type)
+		{
+			System.Collections.Specialized.NameValueCollection NewStrings = new System.Collections.Specialized.NameValueCollection();
+			switch (Type)
+			{
+				case TranslationType.Quests:
+				case TranslationType.QuestTitle:
+				case TranslationType.QuestDetail:
+					kcsapi_quest QuestData = RawData as kcsapi_quest;
+					if (QuestData == null)
+						return;
+					NewStrings.Add("type", "Quest");
+					NewStrings.Add("ID", QuestData.api_no.ToString());
+					NewStrings.Add("Title", QuestData.api_title);
+					NewStrings.Add("Detail", QuestData.api_detail);
+					break;
+			}
+
+			using(WebClient client = new WebClient())
+			{
+				try
+				{
+					byte[] responsebytes = client.UploadValues("http://kcv.koumakan.jp/kcv/addstrings", "POST", NewStrings);
+					string responsebody = Encoding.UTF8.GetString(responsebytes);
+				}
+				catch (Exception ex)
+				{
+					if (ex is WebException || ex is ArgumentNullException) { }
+					else { throw; }
+				}
 			}
 		}
 
