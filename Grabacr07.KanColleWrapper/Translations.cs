@@ -258,12 +258,29 @@ namespace Grabacr07.KanColleWrapper
 
 				foreach (XElement el in FoundTranslation)
 				{
+					Int32 parsedID;
+					bool ValidID = false;
+
+					if (ID >= 0 && el.Element("ID") != null)
+						ValidID = Int32.TryParse(el.Element("ID").Value, out parsedID);
+
 // #if DEBUG
 // 					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
 // 						Debug.WriteLine(string.Format("Translation: {0,-20} {1,-20} {2}", JPString, el.Element(TRChildElement).Value, ID));
 // #endif
-					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
+					// Match by ID if an ID is present.
+					if (ID >= 0 && el.Element("ID") != null && ValidID && Convert.ToInt32(el.Element("ID").Value) == ID)
 						return el.Element(TRChildElement).Value;
+					// If an ID is present, but matching by ID has failed: check if we already have an entry with this ID; if not, submit it.
+					else if (ID >= 0)
+					{
+						IEnumerable<XElement> FoundID = TranslationList.Where(b => b.Element("ID").Value.Equals(ID.ToString()));
+						if (!FoundID.Any())
+						{
+							SubmitStrings(RawData, Type);
+							return el.Element(TRChildElement).Value;
+						}
+					}
 					else if (ID < 0)
 						return el.Element(TRChildElement).Value;
 
@@ -416,7 +433,6 @@ namespace Grabacr07.KanColleWrapper
 							// The title is wrong, but the detail is right. Fix the title.
 							foreach (XElement el in FoundTranslationDetail)
 								el.Element("JP-Name").Value = QuestData.api_title;
-
 						}
 						else if (Type == TranslationType.QuestDetail && FoundTranslationTitle != null && FoundTranslationTitle.Any())
 						{
@@ -437,10 +453,7 @@ namespace Grabacr07.KanColleWrapper
 						}
 
 						QuestsXML.Save("Translations\\" + CurrentCulture + "Quests.xml");
-						// if (EnableStringSubmission)
-						{
-							SubmitStrings(RawData, Type);
-						}
+						SubmitStrings(RawData, Type);
 						break;
 				}
 			}
@@ -453,6 +466,10 @@ namespace Grabacr07.KanColleWrapper
 		// Submits missing translations to a remote server.
 		public void SubmitStrings(Object RawData, TranslationType Type)
 		{
+			// Do not submit if the submission option is disabled
+			if (!EnableStringSubmission)
+				return;
+
 			System.Collections.Specialized.NameValueCollection NewStrings = new System.Collections.Specialized.NameValueCollection();
 			switch (Type)
 			{

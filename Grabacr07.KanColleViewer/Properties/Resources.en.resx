@@ -905,4 +905,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="SlotItemCatalog_ShowStats" xml:space="preserve">
     <value>Show item stats</value>
   </data>
+  <data name="Settings_Translations_Submit_Enable" xml:space="preserve">
+    <value>Automatically submit untranslated data</value>
+  </data>
 </root>

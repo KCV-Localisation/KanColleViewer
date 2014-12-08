@@ -48,6 +48,7 @@ namespace Grabacr07.KanColleViewer
 			// Initialize translations
 			KanColleClient.Current.Translations.EnableTranslations = Settings.Current.EnableTranslations;
 			KanColleClient.Current.Translations.EnableAddUntranslated = Settings.Current.EnableAddUntranslated;
+			KanColleClient.Current.Translations.EnableStringSubmission = Settings.Current.EnableStringSubmission;
 			KanColleClient.Current.Translations.ChangeCulture(Settings.Current.Culture);
 
 			// Update notification and download new translations (if enabled)
