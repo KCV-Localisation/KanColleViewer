@@ -159,7 +159,7 @@
 
 									<Grid>
 										<Grid.ColumnDefinitions>
-											<ColumnDefinition />
+											<ColumnDefinition SharedSizeGroup="Name" />
 											<ColumnDefinition Width="Auto"
 															  SharedSizeGroup="Level" />
 											<ColumnDefinition Width="Auto"
