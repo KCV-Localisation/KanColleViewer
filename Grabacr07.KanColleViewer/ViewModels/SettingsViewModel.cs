@@ -552,6 +552,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				if (Settings.Current.EnableUpdateTransOnStart != value)
 				{
 					Settings.Current.EnableUpdateTransOnStart = value;
+                    KanColleClient.Current.Translations.EnableUpdateTransOnStart = value;
 					this.RaisePropertyChanged();
 				}
 			}

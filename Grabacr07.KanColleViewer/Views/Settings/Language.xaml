@@ -43,7 +43,7 @@
 
 		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Translations_Enable}, Mode=OneWay}" IsChecked="{Binding EnableTranslations}" Height="17" Margin="15,0,0,10"/>
 		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Translations_Add_Enable}, Mode=OneWay}" IsChecked="{Binding EnableAddUntranslated}" Height="17" Margin="15,0,0,10"/>
-		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Translations_Submit_Enable}, Mode=OneWay}" IsChecked="{Binding EnableStringSubmission}" Height="17" Margin="15,0,0,10"/>
+		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Translations_Submit_Enable}, Mode=OneWay}" IsChecked="{Binding EnableStringSubmission}" IsEnabled="{Binding EnableUpdateTransOnStart}" Height="17" Margin="15,0,0,10"/>
 
 	</StackPanel>
 </UserControl>

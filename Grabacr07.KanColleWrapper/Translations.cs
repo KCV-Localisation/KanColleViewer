@@ -26,6 +26,9 @@ namespace Grabacr07.KanColleWrapper
 		public bool EnableTranslations { get; set; }
 		public bool EnableAddUntranslated { get; set; }
 		public bool EnableStringSubmission { get; set; }
+        public bool EnableUpdateTransOnStart { get; set; }
+
+        public string StringSubmissionURL { get; set; }
 		
 		#region EquipmentVersion 変更通知プロパティ
 
@@ -466,8 +469,8 @@ namespace Grabacr07.KanColleWrapper
 		// Submits missing translations to a remote server.
 		public void SubmitStrings(Object RawData, TranslationType Type)
 		{
-			// Do not submit if the submission option is disabled
-			if (!EnableStringSubmission)
+			// Do not submit if the submission option is disabled or if the user does not have automatic translation updates enabled
+			if (!EnableStringSubmission || !EnableUpdateTransOnStart)
 				return;
 
 			System.Collections.Specialized.NameValueCollection NewStrings = new System.Collections.Specialized.NameValueCollection();
@@ -490,7 +493,7 @@ namespace Grabacr07.KanColleWrapper
 			{
 				try
 				{
-					byte[] responsebytes = client.UploadValues("http://kcv.koumakan.jp/kcv/addstrings", "POST", NewStrings);
+					byte[] responsebytes = client.UploadValues(StringSubmissionURL, "POST", NewStrings);
 					string responsebody = Encoding.UTF8.GetString(responsebytes);
 				}
 				catch (Exception ex)
