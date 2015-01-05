@@ -101,6 +101,8 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this.RawData.api_taik.Get(0) ?? 0; }
 		}
 
+		/* No longer available in the API
+
 		/// <summary>
 		/// 回避の最大値を取得します。
 		/// </summary>
@@ -124,6 +126,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			get { return this.RawData.api_saku.Get(1) ?? 0; }
 		}
+		*/
 
 		#endregion
 
