@@ -103,8 +103,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/Yuubari/KanColleViewer/master/resources/Version" +
-            ".xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://kcv.koumakan.jp/version/")]
         public global::System.Uri KCVUpdateUrl {
             get {
                 return ((global::System.Uri)(this["KCVUpdateUrl"]));

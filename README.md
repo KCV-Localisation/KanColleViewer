@@ -26,6 +26,8 @@ All builds can be found in the following links below.
 
 ## Frequently Asked Questions
 
+Refer to the standalone [FAQ](https://github.com/Yuubari/KanColleViewer/blob/master/FAQ.md) if your question is not answered below.
+
 #### Is KCV safe?
 Yes. You are mainly playing off Internet Explorer (IE). The program itself wraps itself around IE and captures all network traffic coming in and out. It only looks for incoming data and uses that for displaying game information such as ships, expeditions, quests, and so on. **This does not change the game itself in any way**. **KCV does not change the packets in any way**.
 
@@ -49,7 +51,7 @@ You need to have [.NET Framework 4.5](http://www.microsoft.com/en-us/download/de
 #### I'm on Windows XP/Mac/Linux and I want to have fun too!
 Sadly, Microsoft doesn't fully support .NET 4.5. There may be 3rd party ways of getting support for the package, but Microsoft has basically abandoned the XP and other OSs in terms of support. Your only two choices realistically is to either get to Windows 7/8 or use [Logbook](https://github.com/Zharay/logbook) which is another Kancolle project that is being worked on that uses Java and is multi-platform also being worked on by [@Zharay](http://twitter.com/Zharay). It is much simpler, but does an awesome job at what it does.
 
-Important note: while Microsoft has announced that they will be open-sourcing the .NET Core Run-time (which means functional run-times for *NIX systems will be soon developed), porting KCV to *NIX/Linux systems (*BSD, OS X, Linux) is not currently possible. KCV depends on two Windows x86/x86_64-only components: Livet and Fiddler. Reimplementing these frameworks would take unrealistic amounts of time.
+Important note: while Microsoft has announced that they will be open-sourcing the .NET Core Run-time (which means functional run-times for *NIX systems will be soon developed), porting KCV to *NIX/Linux systems (BSD, OS X, Linux) is not currently possible. KCV depends on two Windows x86/x86_64-only components: Livet and Fiddler. Reimplementing these frameworks would take unrealistic amounts of time.
 
 #### I have a white screen / error message about being unable to connect.
 Please let me know if this is happening and tell me what OS you are using and the version of IE. My suspicion is an outdated version of IE. Reports have also shown that clearing your cache+cookies and re-installing flash will also fix this issue.

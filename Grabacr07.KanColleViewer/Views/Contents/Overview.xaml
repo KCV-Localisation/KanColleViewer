@@ -159,12 +159,12 @@
 
 									<Grid>
 										<Grid.ColumnDefinitions>
-											<ColumnDefinition SharedSizeGroup="Name" />
-											<ColumnDefinition Width="Auto"
+											<ColumnDefinition />
+											<ColumnDefinition Width="1.5*"
 															  SharedSizeGroup="Level" />
-											<ColumnDefinition Width="Auto"
+											<ColumnDefinition Width="2*"
 															  SharedSizeGroup="HP" />
-											<ColumnDefinition Width="Auto"
+											<ColumnDefinition Width="*"
 															  SharedSizeGroup="Condition" />
 										</Grid.ColumnDefinitions>
 
@@ -216,6 +216,7 @@
 											</TextBlock>
 											<controls:ColorIndicator Grid.Row="1"
 																	 Height="6"
+                                                                     Width="70"
 																	 LimitedValue="{Binding Ship.HP, Mode=OneWay}"
 																	 Margin="0,2,0,0" />
 										</Grid>
