@@ -143,12 +143,12 @@
 
 										<Grid>
 											<Grid.ColumnDefinitions>
-												<ColumnDefinition SharedSizeGroup="Name" />
-												<ColumnDefinition Width="Auto"
+												<ColumnDefinition />
+												<ColumnDefinition Width="1.5*"
 																  SharedSizeGroup="Level" />
-												<ColumnDefinition Width="Auto"
+												<ColumnDefinition Width="2*"
 																  SharedSizeGroup="HP" />
-												<ColumnDefinition Width="Auto"
+												<ColumnDefinition Width="*"
 																  SharedSizeGroup="Condition" />
 											</Grid.ColumnDefinitions>
 
