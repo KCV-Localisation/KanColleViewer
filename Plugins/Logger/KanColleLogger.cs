@@ -11,7 +11,7 @@ namespace Logger
 {
 	[Export(typeof(IToolPlugin))]
 	[ExportMetadata("Title", "KanColleLogger")]
-	[ExportMetadata("Description", "シンプルな回数カウント機能を提供します。")]
+	[ExportMetadata("Description", "File logging back-end")]
 	[ExportMetadata("Version", "1.0")]
 	[ExportMetadata("Author", "@Xiatian")]
 	public class KanColleCounter : IToolPlugin
@@ -21,6 +21,9 @@ namespace Logger
 			Loggers = new ObservableCollection<LoggerBase>
 			{
 				new ItemLog(KanColleClient.Current.Proxy),
+				new ConstructionLog(KanColleClient.Current.Proxy),
+				new BattleLog(KanColleClient.Current.Proxy),
+				new MaterialsLog(KanColleClient.Current.Proxy),
 			}
 		};
 

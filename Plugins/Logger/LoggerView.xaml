@@ -37,14 +37,14 @@
 							BorderBrush="{DynamicResource BorderBrushKey}">
 						<Grid>
 							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="10" />
 								<ColumnDefinition Width="Auto"
 												  SharedSizeGroup="Text" />
-								<ColumnDefinition Width="32" />
-								<ColumnDefinition Width="Auto" />
 							</Grid.ColumnDefinitions>
 
 							<CheckBox IsChecked="{Binding Enabled, Mode=TwoWay}" />
-							<TextBlock>
+							<TextBlock Grid.Column="2">
 								<Run Text="{Binding Text, Mode=OneWay}" />
 							</TextBlock>
 						</Grid>
