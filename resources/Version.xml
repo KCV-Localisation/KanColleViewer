@@ -7,7 +7,7 @@
 	</Item>
 	<Item>
 		<Name>Equipment</Name>
-		<Version>1.0.11</Version>
+		<Version>1.0.12</Version>
 		<URL>https://raw.githubusercontent.com/KCV-Localisation/KanColleViewer-Translations/master/Equipment.xml</URL>
 	</Item>
 	<Item>
@@ -17,12 +17,12 @@
 	</Item>
 	<Item>
 		<Name>Quests</Name>
-		<Version>1.0.19</Version>
+		<Version>1.0.20</Version>
 		<URL>https://raw.githubusercontent.com/KCV-Localisation/KanColleViewer-Translations/master/Quests.xml</URL>
 	</Item>
 	<Item>
 		<Name>Ships</Name>
-		<Version>1.0.18</Version>
+		<Version>1.0.19</Version>
 		<URL>https://raw.githubusercontent.com/KCV-Localisation/KanColleViewer-Translations/master/Ships.xml</URL>
 	</Item>
 	<Item>
