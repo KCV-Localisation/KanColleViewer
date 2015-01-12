@@ -223,6 +223,24 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+		#region EnableStringSubmission 変更通知プロパティ
+
+		public bool EnableStringSubmission
+		{
+			get { return Settings.Current.EnableStringSubmission; }
+			set
+			{
+				if (Settings.Current.EnableStringSubmission != value)
+				{
+					Settings.Current.EnableStringSubmission = value;
+					KanColleClient.Current.Translations.EnableStringSubmission = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 		#region BrowserZoomFactor 変更通知プロパティ
 
 		private BrowserZoomFactor _BrowserZoomFactor;
@@ -534,6 +552,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				if (Settings.Current.EnableUpdateTransOnStart != value)
 				{
 					Settings.Current.EnableUpdateTransOnStart = value;
+                    KanColleClient.Current.Translations.EnableUpdateTransOnStart = value;
 					this.RaisePropertyChanged();
 				}
 			}

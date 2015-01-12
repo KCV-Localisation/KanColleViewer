@@ -151,6 +151,8 @@
 												<ColumnDefinition Width="Auto"
 																  SharedSizeGroup="Condition" />
 											</Grid.ColumnDefinitions>
+											<ColumnDefinition Width="2*"
+											<ColumnDefinition Width="*"
 
 											<TextBlock ToolTipService.Placement="Relative"
 													   ToolTipService.HorizontalOffset="-9"

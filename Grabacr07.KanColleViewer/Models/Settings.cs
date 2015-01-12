@@ -21,7 +21,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"KanColleViewer",
 			"Settings.xml");
 
-		private static readonly string CurrentSettingsVersion = "1.7";
+		private static readonly string CurrentSettingsVersion = "1.8";
 
 		public static Settings Current { get; set; }
 
@@ -52,6 +52,7 @@ namespace Grabacr07.KanColleViewer.Models
 				EnableLogging = false,
 				EnableTranslations = true,
 				EnableAddUntranslated = true,
+				EnableStringSubmission = true,
 				EnableCriticalNotify = true,
 				EnableCriticalAccent = true,
 				EnableUpdateNotification = true,
@@ -445,6 +446,24 @@ namespace Grabacr07.KanColleViewer.Models
 				if (this._EnableAddUntranslated != value)
 				{
 					this._EnableAddUntranslated = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region EnableStringSubmission 変更通知プロパティ
+
+		private bool _EnableStringSubmission;
+
+		public bool EnableStringSubmission
+		{
+			get { return this._EnableStringSubmission; }
+			set
+			{
+				if (this._EnableStringSubmission != value)
+				{
+					this._EnableStringSubmission = value;
 					this.RaisePropertyChanged();
 				}
 			}

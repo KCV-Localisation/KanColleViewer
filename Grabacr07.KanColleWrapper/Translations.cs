@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -24,6 +25,10 @@ namespace Grabacr07.KanColleWrapper
 
 		public bool EnableTranslations { get; set; }
 		public bool EnableAddUntranslated { get; set; }
+		public bool EnableStringSubmission { get; set; }
+        public bool EnableUpdateTransOnStart { get; set; }
+
+        public string StringSubmissionURL { get; set; }
 		
 		#region EquipmentVersion 変更通知プロパティ
 
@@ -256,12 +261,29 @@ namespace Grabacr07.KanColleWrapper
 
 				foreach (XElement el in FoundTranslation)
 				{
+					Int32 parsedID;
+					bool ValidID = false;
+
+					if (ID >= 0 && el.Element("ID") != null)
+						ValidID = Int32.TryParse(el.Element("ID").Value, out parsedID);
+
 // #if DEBUG
 // 					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
 // 						Debug.WriteLine(string.Format("Translation: {0,-20} {1,-20} {2}", JPString, el.Element(TRChildElement).Value, ID));
 // #endif
-					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
+					// Match by ID if an ID is present.
+					if (ID >= 0 && el.Element("ID") != null && ValidID && Convert.ToInt32(el.Element("ID").Value) == ID)
 						return el.Element(TRChildElement).Value;
+					// If an ID is present, but matching by ID has failed: check if we already have an entry with this ID; if not, submit it.
+					else if (ID >= 0)
+					{
+						IEnumerable<XElement> FoundID = TranslationList.Where(b => b.Element("ID").Value.Equals(ID.ToString()));
+						if (!FoundID.Any())
+						{
+							SubmitStrings(RawData, Type);
+							return el.Element(TRChildElement).Value;
+						}
+					}
 					else if (ID < 0)
 						return el.Element(TRChildElement).Value;
 
@@ -414,7 +436,6 @@ namespace Grabacr07.KanColleWrapper
 							// The title is wrong, but the detail is right. Fix the title.
 							foreach (XElement el in FoundTranslationDetail)
 								el.Element("JP-Name").Value = QuestData.api_title;
-
 						}
 						else if (Type == TranslationType.QuestDetail && FoundTranslationTitle != null && FoundTranslationTitle.Any())
 						{
@@ -435,12 +456,51 @@ namespace Grabacr07.KanColleWrapper
 						}
 
 						QuestsXML.Save("Translations\\" + CurrentCulture + "Quests.xml");
+						SubmitStrings(RawData, Type);
 						break;
 				}
 			}
 			catch (Exception ex)
 			{
 				Debug.WriteLine(ex);
+			}
+		}
+
+		// Submits missing translations to a remote server.
+		public void SubmitStrings(Object RawData, TranslationType Type)
+		{
+			// Do not submit if the submission option is disabled or if the user does not have automatic translation updates enabled
+			if (!EnableStringSubmission || !EnableUpdateTransOnStart)
+				return;
+
+			System.Collections.Specialized.NameValueCollection NewStrings = new System.Collections.Specialized.NameValueCollection();
+			switch (Type)
+			{
+				case TranslationType.Quests:
+				case TranslationType.QuestTitle:
+				case TranslationType.QuestDetail:
+					kcsapi_quest QuestData = RawData as kcsapi_quest;
+					if (QuestData == null)
+						return;
+					NewStrings.Add("type", "Quest");
+					NewStrings.Add("ID", QuestData.api_no.ToString());
+					NewStrings.Add("Title", QuestData.api_title);
+					NewStrings.Add("Detail", QuestData.api_detail);
+					break;
+			}
+
+			using(WebClient client = new WebClient())
+			{
+				try
+				{
+					byte[] responsebytes = client.UploadValues(StringSubmissionURL, "POST", NewStrings);
+					string responsebody = Encoding.UTF8.GetString(responsebytes);
+				}
+				catch (Exception ex)
+				{
+					if (ex is WebException || ex is ArgumentNullException) { }
+					else { throw; }
+				}
 			}
 		}
 

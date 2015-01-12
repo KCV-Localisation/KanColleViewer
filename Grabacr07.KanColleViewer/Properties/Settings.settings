@@ -44,7 +44,7 @@
       <Value Profile="(Default)">https://raw.githubusercontent.com/KCV-Localisation/KanColleViewer-Translations/master/</Value>
     </Setting>
     <Setting Name="KCVUpdateUrl" Type="System.Uri" Scope="Application">
-      <Value Profile="(Default)">https://raw.githubusercontent.com/Yuubari/KanColleViewer/master/resources/Version.xml</Value>
+      <Value Profile="(Default)">http://kcv.koumakan.jp/version/</Value>
     </Setting>
     <Setting Name="FlashQualityJS" Type="System.String" Scope="Application">
       <Value Profile="(Default)">var flashQuality = function () {{
@@ -109,6 +109,9 @@ function CheckChange() {{
     </Setting>
     <Setting Name="FlashEmbed" Type="System.String" Scope="User">
       <Value Profile="(Default)">&lt;embed id="KCVGenerated" width="800" height="480" wmode="{1}" quality="{0}" bgcolor="#000" allowScriptAccess="always" type="application/x-shockwave-flash" src="{2}"&gt;</Value>
+    </Setting>
+    <Setting Name="StringSubmitUrl" Type="System.Uri" Scope="User">
+      <Value Profile="(Default)">http://kcv.koumakan.jp/kcv/addstrings</Value>
     </Setting>
   </Settings>
 </SettingsFile>
