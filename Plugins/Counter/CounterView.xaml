@@ -50,7 +50,7 @@
 									 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 							</TextBlock>
 							<controls:CallMethodButton Grid.Column="2"
-													   Content="リセット"
+													   Content="Reset"
 													   MethodName="Reset" />
 						</Grid>
 					</Border>
