@@ -92,7 +92,7 @@ namespace Counter
 				.Where(x => x.Data.api_clear_result == 1 || x.Data.api_clear_result == 2)
 				.Subscribe(_ => this.Count++);
 
-			this.Text = "Expeditions Compeleted";
+			this.Text = "Expeditions Completed";
 		}
 	}
 }
