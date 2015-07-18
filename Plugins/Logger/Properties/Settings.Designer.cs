@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Counter.Properties
+namespace Logger.Properties
 {
     
     
