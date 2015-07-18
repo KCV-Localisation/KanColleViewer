@@ -105,6 +105,25 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
 		#endregion
 
+		#region TitleUntranslated 変更通知プロパティ
+
+		private string _TitleUntranslated;
+
+		public string TitleUntranslated
+		{
+			get { return this._TitleUntranslated; }
+			set
+			{
+				if (this._TitleUntranslated != value)
+				{
+					this._TitleUntranslated = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 		#region Detail 変更通知プロパティ
 
 		private string _Detail;
@@ -117,6 +136,25 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 				if (this._Detail != value)
 				{
 					this._Detail = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region DetailUntranslated 変更通知プロパティ
+
+		private string _DetailUntranslated;
+
+		public string DetailUntranslated
+		{
+			get { return this._DetailUntranslated; }
+			set
+			{
+				if (this._DetailUntranslated != value)
+				{
+					this._DetailUntranslated = value;
 					this.RaisePropertyChanged();
 				}
 			}
@@ -172,7 +210,9 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 				this.State = quest.State;
 				this.Progress = quest.Progress;
 				this.Title = quest.Title;
+				this.TitleUntranslated = quest.TitleUntranslated;
 				this.Detail = quest.Detail;
+				this.DetailUntranslated = quest.DetailUntranslated;
 			}
 			
 		}

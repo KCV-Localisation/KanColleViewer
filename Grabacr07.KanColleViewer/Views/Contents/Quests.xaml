@@ -66,7 +66,9 @@
 								<DataTemplate>
 									<kcvc:Quest IsUntaken="{Binding IsUntaken}"
 											Title="{Binding Title}"
+											TitleUntranslated="{Binding TitleUntranslated}"
 											Detail="{Binding Detail}"
+											DetailUntranslated="{Binding DetailUntranslated}"
 											Category="{Binding Category}"
 											Progress="{Binding Progress}"
 											State="{Binding State}"
@@ -148,7 +150,9 @@
 													<ControlTemplate TargetType="{x:Type ToggleButton}">
 														<kcvc:Quest IsUntaken="{Binding IsUntaken}"
 																Title="{Binding Title}"
+																TitleUntranslated="{Binding TitleUntranslated}"
 																Detail="{Binding Detail}"
+																DetailUntranslated="{Binding DetailUntranslated}"
 																Category="{Binding Category}"
 																Progress="{Binding Progress}"
 																State="{Binding State}"

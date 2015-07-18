@@ -38,7 +38,8 @@
 									   TextWrapping="{TemplateBinding TextWrapping}">
 								<Run x:Name="Title"
 									 Text="{TemplateBinding Title}"
-									 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+									 Style="{DynamicResource EmphaticTextElementStyleKey}"
+									 ToolTipService.ToolTip="{TemplateBinding TitleUntranslated}" />
 								<Run Text=" " />
 								<TextBlock TextWrapping="NoWrap">
 									<Run x:Name="State"
@@ -53,7 +54,8 @@
 									Grid.Column="1">
 								<TextBlock x:Name="Detail"
 										   Text="{TemplateBinding Detail}"
-										   Style="{DynamicResource DetailTextStyleKey}" />
+										   Style="{DynamicResource DetailTextStyleKey}"
+										   ToolTip="{TemplateBinding DetailUntranslated}" />
 							</Border>
 						</Grid>
 					</Border>

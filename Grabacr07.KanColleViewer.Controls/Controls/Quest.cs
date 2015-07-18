@@ -75,6 +75,18 @@ namespace Grabacr07.KanColleViewer.Controls
 
 		#endregion
 
+		#region TitleUntranslated 依存関係プロパティ
+
+		public string TitleUntranslated
+		{
+			get { return (string)this.GetValue(TitleUntranslatedProperty); }
+			set { this.SetValue(TitleUntranslatedProperty, value); }
+		}
+		public static readonly DependencyProperty TitleUntranslatedProperty =
+			DependencyProperty.Register("TitleUntranslated", typeof(string), typeof(Quest), new UIPropertyMetadata(""));
+
+		#endregion
+
 		#region Detail 依存関係プロパティ
 
 		public string Detail
@@ -84,6 +96,18 @@ namespace Grabacr07.KanColleViewer.Controls
 		}
 		public static readonly DependencyProperty DetailProperty =
 			DependencyProperty.Register("Detail", typeof(string), typeof(Quest), new UIPropertyMetadata(""));
+
+		#endregion
+
+		#region DetailUntranslated 依存関係プロパティ
+
+		public string DetailUntranslated
+		{
+			get { return (string)this.GetValue(DetailUntranslatedProperty); }
+			set { this.SetValue(DetailUntranslatedProperty, value); }
+		}
+		public static readonly DependencyProperty DetailUntranslatedProperty =
+			DependencyProperty.Register("DetailUntranslated", typeof(string), typeof(Quest), new UIPropertyMetadata(""));
 
 		#endregion
 

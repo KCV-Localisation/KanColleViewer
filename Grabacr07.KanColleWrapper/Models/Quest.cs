@@ -54,6 +54,11 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return KanColleClient.Current.Translations.GetTranslation(RawData.api_title, TranslationType.QuestTitle, this.RawData, this.RawData.api_no); }
 		}
 
+		public string TitleUntranslated
+		{
+			get { return RawData.api_title; }
+		}
+
 		/// <summary>
 		/// 任務の詳細を取得します。
 		/// </summary>
@@ -62,6 +67,10 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return KanColleClient.Current.Translations.GetTranslation(RawData.api_detail, TranslationType.QuestDetail, this.RawData, this.RawData.api_no); }
 		}
 
+		public string DetailUntranslated
+		{
+			get { return RawData.api_detail; }
+		}
 
 		public Quest(kcsapi_quest rawData) : base(rawData) { }
 
