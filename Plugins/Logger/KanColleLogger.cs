@@ -14,7 +14,7 @@ namespace Logger
 	[ExportMetadata("Description", "File logging back-end")]
 	[ExportMetadata("Version", "1.0")]
 	[ExportMetadata("Author", "@Xiatian")]
-	public class KanColleCounter : IToolPlugin
+	public class KanColleLogger : IToolPlugin
 	{
 		private readonly LoggerViewModel viewmodel = new LoggerViewModel
 		{
@@ -31,6 +31,8 @@ namespace Logger
 		{
 			get { return "Logger"; }
 		}
+
+		public event EventHandler<NotifyEventArgs> NotifyRequested;
 
 		public object GetSettingsView()
 		{
