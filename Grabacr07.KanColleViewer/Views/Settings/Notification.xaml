@@ -104,12 +104,12 @@
 		<Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-		<TextBlock Text="通知プラグイン"
+        <TextBlock Text="{Binding Resources.Settings_Notifications_NotificationPlugins, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 				   Style="{DynamicResource SettingsHeaderTextStyleKey}"
 				   Margin="0,10,0,8" />
 
 		<StackPanel Margin="20,0,0,0">
-			<TextBlock Text="以下のプラグインを使用して通知されます。"
+            <TextBlock Text="{Binding Resources.Settings_Notifications_NotificationPlugins_InUse, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 					   Style="{DynamicResource DetailTextStyleKey}"
 					   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 

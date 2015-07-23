@@ -1181,4 +1181,10 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Stats_RemodelLevel" xml:space="preserve">
     <value>Next Remodel</value>
   </data>
+  <data name="Settings_Notifications_NotificationPlugins" xml:space="preserve">
+    <value>Notification plugin</value>
+  </data>
+  <data name="Settings_Notifications_NotificationPlugins_InUse" xml:space="preserve">
+    <value>The following plugin is being used</value>
+  </data>
 </root>

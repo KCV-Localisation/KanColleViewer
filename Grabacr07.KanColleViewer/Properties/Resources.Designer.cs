@@ -1464,6 +1464,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 通知プラグイン.
+        /// </summary>
+        public static string Settings_Notifications_NotificationPlugins {
+            get {
+                return ResourceManager.GetString("Settings_Notifications_NotificationPlugins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 以下のプラグインを使用して通知されます。.
+        /// </summary>
+        public static string Settings_Notifications_NotificationPlugins_InUse {
+            get {
+                return ResourceManager.GetString("Settings_Notifications_NotificationPlugins_InUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 入渠完了時に通知する.
         /// </summary>
         public static string Settings_Notifications_Repair_Enabled {
